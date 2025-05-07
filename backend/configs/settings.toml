@@ -1,0 +1,14 @@
+[default]
+API_BASE_NAME = '/api'
+AUTH_MODE = [ 'jwt' ]
+DEBUG_MODE = true
+DEBUG_SQL = 0 # 0=>No; 1=>Profiling on endpoints (sqlalchemy-easy-profile); 2=>Print all SQL queries
+ENABLE_CORS = true
+ENABLE_MULTICLIENT = false # true to activate the MultiClient module (additional config required)
+
+[production]
+DEBUG_MODE = false
+
+[test]
+SECRET_KEY = 'S3cR3t'  # do not commit production secret key, use an ENV_VAR or a git-ignored .secrets.toml file
+ENABLE_MULTICLIENT = true # true to activate the MultiClient module (additional config required)

@@ -1,0 +1,14 @@
+[default]
+DB_HOST = "127.0.0.1"
+DB_NAME = "pokeAPI"
+DB_PORT = 5433
+DB_ENGINE = "PgSQL"
+DB_CONNECTIONS_CACHE_SIZE = 256 # Optional[None]. Int=>Max number of cached connections bw API and each customer DB
+USER_TABLE = "user" # Optional[user]. Modify it if your user table has another name
+CUSTOMER_CLASS = "CustomerAPS"
+# * Optional parameters can be removed and will use the value in brackets
+[test]
+DB_NAME = "aps_test"
+DB_HOST = "127.0.0.1"
+DB_PORT = 5432
+DB_ENGINE = "PgSQL"

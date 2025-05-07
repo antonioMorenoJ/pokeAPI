@@ -1,0 +1,33 @@
+default]
+APP_NAME = "APS"
+JWT_ACCESS_TOKEN_EXPIRES = 24   # Access token duration (in hours)
+JWT_REFRESH_TOKEN_EXPIRES = 168 # 168 hours = 1 week
+PERMANENT_SESSION_LIFETIME = 24
+WTF_CSRF_TIME_LIMIT = 86400
+
+OPENAPI_CONFIG = """
+@json {
+    "API_TITLE": "APS",
+    "API_VERSION": "1.0.0",
+    "OPENAPI_VERSION": "3.0.3",
+    "OPENAPI_URL_PREFIX": "apidocs",
+    "OPENAPI_SWAGGER_UI_PATH": "swagger",
+    "OPENAPI_SWAGGER_UI_URL": "https://cdn.jsdelivr.net/npm/swagger-ui-dist/",
+    "OPENAPI_SWAGGER_UI_VERSION": "3.52.0",
+    "OPENAPI_REDOC_PATH": "redoc"
+}
+"""
+
+API_SPEC_OPTIONS = """
+@json  {
+    "components": {
+        "securitySchemes": {
+            "JWT": {
+                "description": "JWT authentication token",
+                "type": "http",
+                "scheme": "bearer"
+            }
+        }
+    }
+}
+"""
