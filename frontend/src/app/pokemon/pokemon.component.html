@@ -1,1 +1,8 @@
-<p>pokemon works!</p>
+<h2>Search your Pokemon</h2>
+
+<mat-form-field appearance="fill">
+  <mat-label>Pokemon</mat-label>
+  <input matInput placeholder="Enter your Pokemon" [(ngModel)]="pokemon_name" />
+  <button mat-button matSuffix (click)="searchPokemon()">Search</button>
+</mat-form-field>
+
