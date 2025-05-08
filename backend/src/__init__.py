@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, Config
 from flask_smorest import Api
 from flask_cors import CORS
 from .services.poke_end_points import poke_blp as poke_end_points
 
-def creat_app():
+def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
 

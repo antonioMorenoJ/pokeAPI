@@ -5,4 +5,3 @@ class PokemonSchema(Schema):
     name = fields.String(required=True)
     type = fields.String(required=True)
     generation = fields.String(required=True)
-

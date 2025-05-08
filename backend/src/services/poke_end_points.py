@@ -1,15 +1,15 @@
 from flask_smorest import Blueprint
 
-from backend.src.models.infoPokemon import infoPokemonSchema
-from backend.src.models.pokemon import Pokemon, PokemonSchema
-from backend.src.services.poke_service import fetch_pokemon
+from ..models.infoPokemon.infoPokemon import InfoPokemon
+from ..models.infoPokemon.infoPokemonSchema import InfoPokemonSchema
+from ..models.pokemon.pokemon import Pokemon
+from ..models.pokemon.pokemon_schema import PokemonSchema
+from ..services.poke_service import fetch_pokemon
 
-poke_blp = ("Pokemon", __name__, description = "Pokemon description")
+poke_blp = Blueprint("Pokemon", __name__, url_prefix="/", description="Pokemon description")
 
-@blp.route("/pokemon", methods=["GET"])
-@blp.arguments(PokemonSchema, location = "query")
-@blp.response(200, infoPokemonSchema)
-def get_pokemon(args):
-    pokemon_name = args["pokemon_name"]
+@poke_blp.route("/pokemon/<string:pokemon_name>", methods=["GET"])
+@poke_blp.response(200, InfoPokemonSchema)
+def get_pokemon(pokemon_name):
     pokemon = fetch_pokemon(pokemon_name)
     return pokemon

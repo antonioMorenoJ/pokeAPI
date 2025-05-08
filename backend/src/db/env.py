@@ -1,13 +1,14 @@
-rom alembic import context
+from alembic import context
 from logging.config import fileConfig
 from sqlalchemy import engine_from_config, pool
 from aps.db import get_db_string
 from aps.models.rest_item import BaseSQL
 from aps.settings import settings
 
+from src.models.infoPokemon import InfoPokemon # noqa F401
 from src.models.pokemon import Pokemon # noqa F401
-from src.models.infoPokemon import InfoPokemon# noqa F401
 from src.models.user import User# noqa F401
+
 
 #
 # TODO: Add here your database models

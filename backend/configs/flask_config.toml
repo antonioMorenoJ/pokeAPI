@@ -1,4 +1,4 @@
-default]
+[default]
 APP_NAME = "APS"
 JWT_ACCESS_TOKEN_EXPIRES = 24   # Access token duration (in hours)
 JWT_REFRESH_TOKEN_EXPIRES = 168 # 168 hours = 1 week
