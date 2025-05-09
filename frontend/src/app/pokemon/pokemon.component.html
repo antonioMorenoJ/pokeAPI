@@ -1,6 +1,6 @@
 <div class="search-form">
 
-<h2>Search your Pokemon</h2>
+<h2>Search your Pokemon </h2>
 
 <mat-form-field appearance="fill" >
   <mat-label>Pokemon</mat-label>
@@ -12,21 +12,7 @@
 <button mat-raised-button color="primary" (click)="cleanTable()">Clear</button>
 </div>
 
-<!--
-<mat-card class="pokemon_info" appearance="outlined" *ngFor="let pokemon of pokemon_info">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Pokemon: {{pokemon.pokemon}}</mat-card-title>
-  </mat-card-header>
-  <img mat-card-image [src]="pokemon.image_url" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-      <p>Type: {{pokemon.type}}</p>
-      <p>Generation: {{pokemon.generation}}</p>
-      <p>Move :{{pokemon.move}}</p>
-  </mat-card-content>
 
-</mat-card>
--->
 <div class="pokemon_info" *ngIf="pokemon_info && pokemon_info.length > 0; ">
   <mat-card class="pokemon-card" *ngFor="let pokemon of pokemon_info">
     <mat-card-header>

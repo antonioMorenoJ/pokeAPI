@@ -28,6 +28,7 @@ export class PokemonComponent {
   }
 
 // search pokemon 
+/*
   searchPokemon() {
       this.pokemonService.getPokemons(this.pokemon_name).subscribe(
         (data)=>{
@@ -45,6 +46,19 @@ export class PokemonComponent {
         
       
   }
+*/
+searchPokemon() {
+  this.pokemonService.getPokemons(this.pokemon_name).subscribe(
+    (data) => {
+      const newData = Array.isArray(data) ? data : [data];
+      // Agrega los nuevos sin eliminar los anteriores
+      this.pokemon_info = [...this.pokemon_info, ...newData];
+    },
+    (error) => {
+      console.log("Error", error);
+    }
+  );
+}
 
 
   cleanTable() {
@@ -57,5 +71,7 @@ export class PokemonComponent {
     //clear the search field
 
   }
+
+
 
 }
