@@ -1,8 +1,28 @@
+<div class="search-form">
+
 <h2>Search your Pokemon</h2>
 
-<mat-form-field appearance="fill">
+<mat-form-field appearance="fill" >
   <mat-label>Pokemon</mat-label>
   <input matInput placeholder="Enter your Pokemon" [(ngModel)]="pokemon_name" />
-  <button mat-button matSuffix (click)="searchPokemon()">Search</button>
 </mat-form-field>
+  </div>
+<div class="search-button">
+<button mat-raised-button (click)="searchPokemon()" color="accent">Search</button>
+<button mat-raised-button color="primary" (click)="cleanTable()">Clear</button>
+</div>
 
+
+<mat-card class="pokemon_info" appearance="outlined" *ngFor="let pokemon of pokemon_info">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Pokemon: {{pokemon.pokemon}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="pokemon.image_url" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+      <p>Type: {{pokemon.type}}</p>
+      <p>Generation: {{pokemon.generation}}</p>
+      <p>Move :{{pokemon.move}}</p>
+  </mat-card-content>
+ 
+</mat-card>

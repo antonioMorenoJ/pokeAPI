@@ -8,10 +8,25 @@
 
 html {
   @include mat.all-component-themes(colors.$light-theme);
- 
+
 
 
 }/* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.footer-card{
+  background-color: #faef3f;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0; // Quita el border-radius para que sea rectangular
+  position: fixed;   // Opcional: si quieres que esté fijo en la parte inferior
+  bottom: 0;        // Opcional: si quieres que esté fijo en la parte inferior
+  left: 0;
+  text-align: center;
+  color:#0056be
+
+}
+
