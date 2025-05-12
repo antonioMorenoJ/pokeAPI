@@ -6,4 +6,4 @@ class InfoPokemonSchema(Schema):
     move = fields.String(required=True)
     type = fields.String(required=True)
     generation = fields.String(required=True)
-
+    image_url = fields.String(required=False)

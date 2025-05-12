@@ -5,6 +5,12 @@ DEBUG_MODE = true
 DEBUG_SQL = 0 # 0=>No; 1=>Profiling on endpoints (sqlalchemy-easy-profile); 2=>Print all SQL queries
 ENABLE_CORS = true
 ENABLE_MULTICLIENT = false # true to activate the MultiClient module (additional config required)
+settings_files =[
+    "db_config.toml",
+    "flask_config.toml",
+    ".secrets.toml",
+    "aps_settings.toml"
+]
 
 [production]
 DEBUG_MODE = false

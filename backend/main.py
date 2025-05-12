@@ -27,3 +27,5 @@ if __name__ == '__main__':
             elif arg[:7] == '--host=':
                 host = arg[7:]
         app.run(host=host, port=port, debug=debug, threaded=True)
+
+#export FLASK_ENV=development

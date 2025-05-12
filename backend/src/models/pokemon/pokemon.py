@@ -9,11 +9,13 @@ class Pokemon(RestItem):
     name : Mapped[str]= mapped_column(unique=True)
     type : Mapped[str]= mapped_column(String(80), default="unknown")
     generation : Mapped[str]= mapped_column(String(80), default="unknown")
+    image_url : Mapped[str]= mapped_column(String(255), nullable=True)
 
     def to_dict(self):
         return {
             "id": self.id,
             "name": self.name,
             "type": self.type,
-            "generation": self.generation
+            "generation": self.generation,
+            "image_url": self.image_url
         }

@@ -19,7 +19,7 @@ import { HttpClient } from '@angular/common/http';
 export class PokemonComponent {
   pokemon_info: any[] = [];
   pokemon_name: string = '';
-  displayedColumns: string[] = ['pokemon', 'move', 'type', 'generation', 'image_url'];  
+  displayedColumns: string[] = ['pokemon', 'move', 'type', 'generation', 'image_url'];
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -27,37 +27,28 @@ export class PokemonComponent {
     console.log("Pokemon component initialized");
   }
 
-// search pokemon 
-/*
-  searchPokemon() {
-      this.pokemonService.getPokemons(this.pokemon_name).subscribe(
-        (data)=>{
-          if(Array.isArray(data)){
-            this.pokemon_info = data;
-          }else{
-            this.pokemon_info = [data];
-          }
-          console.log("Datos", this.pokemon_info);
-        },
-        (error)=>{
-          console.log("Error", error);
-          }
-      )
-        
-      
-  }
-*/
+
 searchPokemon() {
-  this.pokemonService.getPokemons(this.pokemon_name).subscribe(
-    (data) => {
-      const newData = Array.isArray(data) ? data : [data];
-      // Agrega los nuevos sin eliminar los anteriores
-      this.pokemon_info = [...this.pokemon_info, ...newData];
-    },
-    (error) => {
-      console.log("Error", error);
-    }
-  );
+  if (this.pokemon_name.trim()) {
+    this.pokemonService.getPokemons(this.pokemon_name).subscribe({
+      next: (data) => {
+        const newData = Array.isArray(data) ? data : [data];
+        // Check for duplicates before adding
+        const newPokemon = newData.filter(newPoke => 
+          !this.pokemon_info.some(existingPoke => 
+            existingPoke.pokemon.toLowerCase() === newPoke.pokemon.toLowerCase()
+          )
+        );
+        
+        this.pokemon_info = [...this.pokemon_info, ...newPokemon];
+        // Clear the input after successful search
+        this.pokemon_name = '';
+      },
+      error: (error) => {
+        console.error("Error fetching pokemon:", error);
+      }
+    });
+  }
 }
 
 

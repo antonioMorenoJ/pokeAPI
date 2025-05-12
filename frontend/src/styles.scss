@@ -16,15 +16,13 @@ html {
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.footer-card{
+.footer-card mat-card-content{
   background-color: #faef3f;
   padding: 20px;
   width: 100%;
   box-sizing: border-box;
-  margin: 0; // Quita el border-radius para que sea rectangular
-  position: fixed ;   // Opcional: si quieres que esté fijo en la parte inferior
-  bottom: 0;        // Opcional: si quieres que esté fijo en la parte inferior
-  left: 0;
+  margin: 0;
+  position: absolute; // Quita el border-radius para que sea rectangular
   text-align: center;
   color:#0056be
 

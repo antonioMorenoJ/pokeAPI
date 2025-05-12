@@ -1,0 +1,7 @@
+[default]
+SECRET_KEY = 'projectPokeApiConAPS2025'
+DB_USER="pokemon"  # Add your database user
+DB_PASS="pokeApi"
+
+[test]
+DB_USER = "root"
